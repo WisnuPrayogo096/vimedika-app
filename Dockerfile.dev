@@ -1,0 +1,21 @@
+# Dockerfile.dev
+
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy only package files for dependency installation
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy entire project (including src/)
+COPY . .
+
+# Expose port (default Next.js dev port)
+EXPOSE 3000
+
+# Run development server with hot-reload
+CMD ["npm", "run", "dev"]
