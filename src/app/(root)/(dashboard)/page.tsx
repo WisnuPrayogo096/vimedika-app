@@ -2,10 +2,10 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import DashboardCharts from "./dashboard-charts";
 import {
-  getDailyProfitReport,
+  getWeeklyProfitReport,
   getMonthlyProfitReport,
 } from "@/lib/actions/chart";
-import { DailyReport } from "@/types/chart";
+import { DailyReport, WeeklyReport } from "@/types/chart";
 
 export default async function DashboardPage() {
   const cookieDashboard = await cookies();
@@ -16,14 +16,19 @@ export default async function DashboardPage() {
   }
 
   const chart1 = await getMonthlyProfitReport();
+  const chart2 = await getWeeklyProfitReport();
 
-  console.log("Full API Response:", JSON.stringify(chart1, null, 2));
-  console.log("Response data:", chart1.data);
-  console.log("Response data.data:", chart1.data?.data);
+  // console.log("Full API Response:", JSON.stringify(chart1, null, 2));
+  // console.log("Response data:", chart1.data);
+  // console.log("Response data.data:", chart1.data?.data);
 
   const chartMonthlyProfitReport = (chart1.data?.data ?? []) as DailyReport[];
+  const chartWeeklyProfitReport = (chart2.data?.data ?? []) as WeeklyReport[];
 
   return (
-    <DashboardCharts chartMonthlyProfitReport={chartMonthlyProfitReport} />
+    <DashboardCharts
+      chartMonthlyProfitReport={chartMonthlyProfitReport}
+      chartWeeklyProfitReport={chartWeeklyProfitReport}
+    />
   );
 }

@@ -33,7 +33,7 @@ const PanelLayout = ({ children }: { children: ReactNode }) => {
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 bg-gradient-to-b from-primary to-secondary text-white ${
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 bg-gradient-to-t from-primary to-secondary text-white ${
           show ? "translate-x-0" : "-translate-x-full"
         } lg:static lg:translate-x-0 lg:w-72`}
       >

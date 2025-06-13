@@ -10,7 +10,7 @@ import { LuMenu } from "react-icons/lu";
 // export default function TopBar({ onToggle }: TopBarProps) {
 export default function TopBar() {
   return (
-    <header className="flex items-center justify-between p-4 bg-transparent text-primary">
+    <header className="flex items-center justify-between p-6 bg-transparent text-primary border-2">
       {/* <div className="flex items-center">
         <button
           className="p-2 lg:hidden"

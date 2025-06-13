@@ -20,4 +20,7 @@ export type {
   DailyReport,
   MonthlyProfitReportData,
   MonthlyProfitReportResponse,
+  WeeklyReport,
+  WeeklyProfitReportData,
+  WeeklyProfitReportResponse,
 } from "./chart";

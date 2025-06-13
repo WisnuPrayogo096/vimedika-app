@@ -158,12 +158,12 @@ export default function LoginForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full font-semibold bg-white text-primary hover:bg-white/90 disabled:opacity-50 transition-colors"
+            className="w-full font-semibold bg-white text-primary hover:bg-white/90 hover:shadow-lg disabled:opacity-50 transition-colors"
           >
             {isSubmitting ? (
               <>
                 <LuLoaderCircle className="mr-2 h-4 w-4 animate-spin" />
-                <span>Signing in...</span>
+                <span>Please wait...</span>
               </>
             ) : (
               <span>Sign In</span>

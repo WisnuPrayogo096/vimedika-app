@@ -2,7 +2,7 @@
 
 import { ActionResult } from "@/types";
 import {
-  DailyProfitReportResponse,
+  WeeklyProfitReportResponse,
   MonthlyProfitReportResponse,
 } from "@/types/chart";
 import {
@@ -17,13 +17,11 @@ import {
 import { COOKIE_CONFIG, ROUTES } from "../constants";
 import api from "../api";
 
-// Define a type for the endpoint configuration
 type ChartEndpointConfig<T> = {
   route: string;
   successMessage: string;
 };
 
-// Generic function to fetch chart data
 async function fetchChartData<T>(
   config: ChartEndpointConfig<T>
 ): Promise<ActionResult<T>> {
@@ -55,7 +53,6 @@ async function fetchChartData<T>(
   }
 }
 
-// Specific functions for each endpoint
 export async function getMonthlyProfitReport(): Promise<
   ActionResult<MonthlyProfitReportResponse>
 > {
@@ -65,12 +62,12 @@ export async function getMonthlyProfitReport(): Promise<
   });
 }
 
-export async function getDailyProfitReport(): Promise<
-  ActionResult<DailyProfitReportResponse>
+export async function getWeeklyProfitReport(): Promise<
+  ActionResult<WeeklyProfitReportResponse>
 > {
-  return fetchChartData<DailyProfitReportResponse>({
-    route: ROUTES.API.DAILY_PROFIT_REPORT,
-    successMessage: "Daily Profit successfully",
+  return fetchChartData<WeeklyProfitReportResponse>({
+    route: ROUTES.API.CHART_WEEKLY_REPORT,
+    successMessage: "Weekly Profit successfully",
   });
 }
 
